@@ -2,6 +2,12 @@ import React from "react";
 
 
 function TodoItem(props){
+   const completedStyle = {
+       fontStyle:'italic',
+       textDecoration:"line-through",
+       color:"#c3c3c3"
+   }
+
     return(
         <div>
             <div className="todo_item">
@@ -10,7 +16,7 @@ function TodoItem(props){
                  onChange={() => props.handleChange(props.item.id)}
                  
                  />
-                <p>{props.item.text}</p>
+                <p style={props.item.completed ? completedStyle : null}>{props.item.text}</p>
             </div>
         </div>
    )

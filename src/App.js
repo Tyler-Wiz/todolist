@@ -9,7 +9,7 @@ import data from "./TodoData";
 class App extends React.Component{
   constructor(props){
     super(props)
-    this.state ={
+    this.state = {
           todos:data
     }
     this.handleChange = this.handleChange.bind(this)
@@ -19,7 +19,10 @@ class App extends React.Component{
      this.setState(prevState => {
        const updatedTodo = prevState.todos.map(todo => {
          if(todo.id === id){
-           todo.completed = !todo.completed
+           return {
+             ...todo,
+              completed: !todo.completed
+           }
          }
          return todo
        })
